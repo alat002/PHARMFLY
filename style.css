@@ -1,0 +1,933 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+    background: #f7f9fc;
+    line-height: 1.6;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    min-height: 70px;
+    padding: 15px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: white;
+    border-bottom: 1px solid #e8edf3;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #1261d6;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #273449;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #1261d6;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 650px;
+    padding: 80px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #eef6ff,
+        #ffffff
+    );
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-label,
+.section-label {
+    color: #1261d6;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #1261d6;
+    display: block;
+}
+
+.hero-content > p:not(.hero-label) {
+    color: #657084;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.primary-btn,
+.emergency-btn,
+.search-box button,
+.tracking-box button,
+.submit-btn {
+    border: none;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.primary-btn,
+.search-box button,
+.tracking-box button,
+.submit-btn {
+    background: #1261d6;
+    color: white;
+}
+
+.primary-btn:hover,
+.search-box button:hover,
+.tracking-box button:hover,
+.submit-btn:hover {
+    background: #0d4fae;
+    transform: translateY(-2px);
+}
+
+.hero-card {
+    width: 330px;
+    min-height: 300px;
+    padding: 40px 30px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+
+    text-align: center;
+}
+
+.drone {
+    font-size: 75px;
+    margin-bottom: 20px;
+}
+
+.hero-card h3 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.hero-card p {
+    color: #687386;
+}
+
+.online {
+    margin-top: 25px;
+    color: #168746;
+    font-weight: 700;
+}
+
+
+/* =========================
+   EMERGENCY
+========================= */
+
+.emergency {
+    padding: 35px 7%;
+
+    background: #1261d6;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.emergency p {
+    opacity: 0.9;
+}
+
+.emergency-btn {
+    background: white;
+    color: #1261d6;
+}
+
+.emergency-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 90px 7%;
+    background: white;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 35px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.section-heading > p:last-child {
+    color: #687386;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+    max-width: 700px;
+    margin: auto;
+
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+
+    padding: 16px 18px;
+
+    border: 1px solid #d8e0eb;
+    border-radius: 10px;
+
+    outline: none;
+    font-size: 16px;
+}
+
+.search-box input:focus {
+    border-color: #1261d6;
+}
+
+.search-results {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 5px auto 0;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+    overflow: hidden;
+
+    position: relative;
+    z-index: 50;
+}
+
+.search-item {
+    padding: 14px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    border-bottom: 1px solid #eeeeee;
+
+    cursor: pointer;
+}
+
+.search-item:hover {
+    background: #f2f7ff;
+}
+
+.search-icon {
+    font-size: 27px;
+}
+
+.search-item strong {
+    display: block;
+}
+
+.search-item small {
+    color: #778195;
+}
+
+
+/* =========================
+   HOW IT WORKS
+========================= */
+
+.how-it-works {
+    padding: 90px 7%;
+    background: #f7f9fc;
+}
+
+.steps {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.step {
+    background: white;
+    padding: 30px 20px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    width: 45px;
+    height: 45px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1261d6;
+    color: white;
+
+    border-radius: 50%;
+
+    font-weight: 800;
+}
+
+.step p {
+    color: #687386;
+}
+
+
+/* =========================
+   TRACKING
+========================= */
+
+.tracking-section {
+    padding: 90px 7%;
+    background: white;
+}
+
+.tracking-box {
+    max-width: 650px;
+    margin: auto;
+
+    display: flex;
+    gap: 10px;
+}
+
+.tracking-box input {
+    flex: 1;
+
+    padding: 16px;
+
+    border: 1px solid #d8e0eb;
+    border-radius: 10px;
+
+    outline: none;
+}
+
+.tracking-result {
+    max-width: 650px;
+    margin: 25px auto 0;
+}
+
+.tracking-card {
+    padding: 25px;
+
+    border-radius: 15px;
+
+    background: #f2f8ff;
+
+    border: 1px solid #cfe2ff;
+}
+
+.tracking-card h3 {
+    margin-bottom: 10px;
+}
+
+.tracking-status {
+    color: #159447;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.tracking-details p {
+    padding: 9px 0;
+    border-bottom: 1px solid #dce9f8;
+}
+
+.tracking-error {
+    padding: 20px;
+
+    background: #fff1f1;
+
+    border: 1px solid #ffcaca;
+
+    color: #c62828;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-section {
+    padding: 90px 7%;
+    background: #eef6ff;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.about-content p:not(.section-label) {
+    color: #687386;
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 40px 7%;
+
+    background: #101827;
+
+    color: white;
+
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #5da2ff;
+}
+
+footer p {
+    color: #b8c1cf;
+    margin-top: 6px;
+}
+
+.map-credit {
+    font-size: 12px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(8, 17, 30, 0.65);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 560px;
+
+    max-height: 92vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 30px;
+
+    color: #555;
+}
+
+.close-btn:hover {
+    color: #1261d6;
+}
+
+.modal-content h2 {
+    margin-bottom: 8px;
+}
+
+.modal-description {
+    color: #687386;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d8e0eb;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #1261d6;
+}
+
+
+/* =========================
+   LOCATION
+========================= */
+
+.location-btn,
+.manual-location-btn {
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.location-btn {
+    border: 1px solid #1261d6;
+
+    background: #eef6ff;
+
+    color: #1261d6;
+}
+
+.location-btn:hover {
+    background: #dcecff;
+}
+
+.manual-location-btn {
+    border: none;
+
+    background: #1261d6;
+
+    color: white;
+}
+
+.manual-location-btn:hover {
+    background: #0d4fae;
+}
+
+.location-status {
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    color: #687386;
+}
+
+
+/* =========================
+   PHARMACY
+========================= */
+
+.pharmacy-section {
+    margin: 25px 0;
+}
+
+.pharmacy-section h3 {
+    margin-bottom: 5px;
+}
+
+.pharmacy-help {
+    color: #687386;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+#pharmacyResults {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pharmacy-card {
+    padding: 16px;
+
+    border: 1px solid #dce4ef;
+
+    border-radius: 12px;
+
+    background: #fafcff;
+
+    transition: 0.2s;
+}
+
+.pharmacy-card:hover {
+    border-color: #1261d6;
+
+    transform: translateY(-1px);
+}
+
+.pharmacy-card h4 {
+    margin-bottom: 4px;
+}
+
+.pharmacy-address {
+    color: #687386;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.pharmacy-distance {
+    color: #1261d6;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.pharmacy-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.select-pharmacy-btn,
+.map-btn {
+    flex: 1;
+
+    padding: 9px;
+
+    border-radius: 8px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+.select-pharmacy-btn {
+    border: none;
+
+    background: #1261d6;
+
+    color: white;
+}
+
+.select-pharmacy-btn:hover {
+    background: #0d4fae;
+}
+
+.map-btn {
+    border: 1px solid #1261d6;
+
+    color: #1261d6;
+
+    background: white;
+}
+
+.map-btn:hover {
+    background: #eef6ff;
+}
+
+
+/* =========================
+   SELECTED PHARMACY
+========================= */
+
+.selected-pharmacy-box {
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+    border-radius: 10px;
+
+    background: #effbf4;
+
+    border: 1px solid #bde8cb;
+}
+
+.selected-pharmacy-box strong {
+    color: #168746;
+}
+
+.selected-pharmacy-box p {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+
+/* =========================
+   SUCCESS
+========================= */
+
+#requestMessage {
+    margin-top: 20px;
+}
+
+.success-message {
+    padding: 20px;
+
+    background: #effbf4;
+
+    border: 1px solid #bde8cb;
+
+    border-radius: 12px;
+}
+
+.success-message h3 {
+    color: #168746;
+}
+
+.tracking-code {
+    margin: 15px 0;
+
+    padding: 14px;
+
+    background: white;
+
+    border: 2px dashed #1261d6;
+
+    color: #1261d6;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .emergency {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 14px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero-card {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .section,
+    .how-it-works,
+    .tracking-section,
+    .about-section {
+        padding: 65px 5%;
+    }
+
+    .search-box,
+    .tracking-box {
+        flex-direction: column;
+    }
+
+    .search-box button,
+    .tracking-box button {
+        width: 100%;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+    }
+
+    .pharmacy-actions {
+        flex-direction: column;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        gap: 8px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+}

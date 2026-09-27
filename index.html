@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHARMFLY | Emergency Medicine Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <nav class="navbar">
+
+        <div class="logo">🚁 PHARMFLY</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#medicines">Medicines</a></li>
+            <li><a href="#tracking">Track Delivery</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="hero-label">EMERGENCY MEDICINE DELIVERY</p>
+
+        <h1>
+            Emergency Medicines,
+            <span>Delivered When You Need Them.</span>
+        </h1>
+
+        <p>
+            PHARMFLY connects you with nearby pharmacies and
+            helps deliver urgent medicines through drones and
+            delivery vans.
+        </p>
+
+        <button class="primary-btn" onclick="openRequest()">
+            🚁 Request Medicine
+        </button>
+
+    </div>
+
+    <div class="hero-card">
+
+        <div class="drone">🚁</div>
+
+        <h3>Fast & Reliable</h3>
+
+        <p>
+            Find a nearby pharmacy and request urgent
+            medicine delivery.
+        </p>
+
+        <div class="online">
+            ● PHARMFLY is available
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EMERGENCY -->
+<section class="emergency">
+
+    <div>
+        <h2>🚨 Need Medicine Urgently?</h2>
+
+        <p>
+            Search for your medicine, choose a pharmacy,
+            select your delivery method and track your request.
+        </p>
+    </div>
+
+    <button class="emergency-btn" onclick="openRequest()">
+        Get Medicine Now
+    </button>
+
+</section>
+
+
+<!-- MEDICINES -->
+<section id="medicines" class="section">
+
+    <div class="section-heading">
+
+        <p class="section-label">MEDICINE SEARCH</p>
+
+        <h2>💊 Find Your Medicine</h2>
+
+        <p>
+            Search our medicine database to begin your request.
+        </p>
+
+    </div>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="medicineSearch"
+            placeholder="Search medicine e.g. Amoxicillin..."
+            autocomplete="off"
+            oninput="searchMedicine()"
+        >
+
+        <button onclick="searchMedicine()">
+            🔍 Search
+        </button>
+
+    </div>
+
+    <div id="searchResults" class="search-results"></div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+
+    <div class="section-heading">
+
+        <p class="section-label">SIMPLE PROCESS</p>
+
+        <h2>How PHARMFLY Works</h2>
+
+    </div>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Search</h3>
+            <p>Search for the medicine you need.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>Choose Pharmacy</h3>
+            <p>Select a nearby mapped pharmacy.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Choose Delivery</h3>
+            <p>Choose Drone or Van delivery.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-number">4</div>
+            <h3>Track</h3>
+            <p>Receive a tracking ID and follow your request.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TRACKING -->
+<section id="tracking" class="tracking-section">
+
+    <div class="section-heading">
+
+        <p class="section-label">DELIVERY TRACKING</p>
+
+        <h2>🚚 Track Your Delivery</h2>
+
+        <p>
+            Enter the exact tracking ID you received.
+        </p>
+
+    </div>
+
+    <div class="tracking-box">
+
+        <input
+            type="text"
+            id="trackingInput"
+            placeholder="Enter tracking ID e.g. PF-5832"
+        >
+
+        <button onclick="trackDelivery()">
+            🚁 Track Delivery
+        </button>
+
+    </div>
+
+    <div id="trackingResult" class="tracking-result"></div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+
+    <div class="about-content">
+
+        <p class="section-label">ABOUT PHARMFLY</p>
+
+        <h2>Medicine When It Matters</h2>
+
+        <p>
+            PHARMFLY is a prototype emergency medicine delivery
+            platform designed to connect users with nearby pharmacies
+            and provide rapid delivery options through drones and vans.
+        </p>
+
+        <p>
+            The platform helps users search for medicines, identify
+            nearby pharmacies, request delivery and track their order.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-logo">🚁 PHARMFLY</div>
+
+    <p>
+        Emergency Medicine Delivery
+    </p>
+
+    <p class="map-credit">
+        Map data © OpenStreetMap contributors
+        <P> 2026 </P>
+    </p>
+
+</footer>
+
+
+<!-- REQUEST MODAL -->
+<div id="requestModal" class="modal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" onclick="closeRequest()">
+            &times;
+        </button>
+
+        <h2>🚁 Request Medicine</h2>
+
+        <p class="modal-description">
+            Complete the information below to request delivery.
+        </p>
+
+
+        <!-- MEDICINE -->
+        <div class="form-group">
+
+            <label for="selectedMedicine">
+                Medicine
+            </label>
+
+            <input
+                type="text"
+                id="selectedMedicine"
+                placeholder="Search medicine..."
+                autocomplete="off"
+                oninput="searchModalMedicine()"
+            >
+
+            <div
+                id="modalMedicineResults"
+                class="search-results modal-results"
+            ></div>
+
+        </div>
+
+
+        <!-- LOCATION -->
+        <div class="form-group">
+
+            <label for="location">
+                Delivery Location
+            </label>
+
+            <input
+                type="text"
+                id="location"
+                placeholder="Enter your location e.g. Osogbo, Osun State"
+            >
+
+            <button
+                type="button"
+                class="location-btn"
+                onclick="useCurrentLocation()"
+            >
+                📍 Use My Current Location
+            </button>
+
+            <button
+                type="button"
+                class="manual-location-btn"
+                onclick="searchManualLocation()"
+            >
+                🔎 Search This Location
+            </button>
+
+            <div id="locationStatus" class="location-status"></div>
+
+        </div>
+
+
+        <!-- PHARMACIES -->
+        <div id="pharmacySection" class="pharmacy-section">
+
+            <h3>🏥 Nearby Pharmacies</h3>
+
+            <p class="pharmacy-help">
+                Enter your location to find mapped pharmacies near you.
+            </p>
+
+            <div id="pharmacyResults">
+
+                <p>
+                    No pharmacies searched yet.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SELECTED PHARMACY -->
+        <div
+            id="selectedPharmacyBox"
+            class="selected-pharmacy-box"
+        >
+
+            <strong>Selected Pharmacy</strong>
+
+            <p id="selectedPharmacyText">
+                No pharmacy selected
+            </p>
+
+        </div>
+
+
+        <!-- DELIVERY -->
+        <div class="form-group">
+
+            <label for="deliveryType">
+                Delivery Method
+            </label>
+
+            <select id="deliveryType">
+
+                <option value="Drone">
+                    🚁 Drone Delivery
+                </option>
+
+                <option value="Van">
+                    🚐 Van Delivery
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+        <button
+            class="submit-btn"
+            onclick="submitRequest()"
+        >
+            🚀 Submit Medicine Request
+        </button>
+
+        <div id="requestMessage"></div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
